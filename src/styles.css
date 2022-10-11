@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins|Nunito");
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+  background-image: url("https://wallpaperset.com/w/full/5/6/a/249501.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  font-family: 'Nunito', sans-serif;
+}
+

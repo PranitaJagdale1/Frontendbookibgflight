@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    
+    </style>
+</head>
+<body>
+
+  <form class="searchdiv" method="post">
+    <input #origin type="text" placeholder="Enter Origin" class="input" name="origin" id="origin">
+    <!-- *ngModel -->
+    <input #destination type="text" placeholder="Enter Destination" class="input" name="destination" id="destination">
+    <input type="submit" value="Search" class="button" (click)="searchFlight(origin.value,destination.value)">
+    <input type="submit" value="Reset" class="button" (click)="reset()">
+</form>
+<br>
+
+<div class="container">
+              
+  <table><!--class="table">-->
+    <!--<thead>-->
+      <tr>
+        <th>Flight Id</th>
+        <th>Flight Name</th>
+        <th>Flight Date</th>
+        <th>Flight Time</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Business Class Fare</th>
+        <th>Economy Class Fare</th>
+        <th>Book Flight</th>
+      </tr>
+    <!--</thead>-->
+    <!--<tbody>-->
+      <!--rendering dynamic data thrg binding-->
+      <tr *ngFor="let book of flights | paginate: {itemsPerPage:3, currentPage:p};">
+        <td>{{book.id}}</td>
+        <td>{{book.flightName}}</td>
+        <td>{{book.flightDate}}</td>
+        <td>{{book.flightTime}}</td>
+        <td>{{book.origin}}</td>
+        <td>{{book.destination}}</td>
+        <td>{{book.businessClassFare}}</td>
+        <td>{{book.economyClassFare}}</td>
+        
+      
+        <td><a href="Javascript.void(0)" routerLink="/add/{{book.id}}" ><button class="button">Book</button></a></td>
+        
+        
+     </tr>
+    
+    <!--</tbody>-->
+  </table>
+  <div  class="button">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
+<br>
+<div class="container">
+  <a href="http://localhost:4200/allowuser"><button  class="button" >Back To Dashboard</button></a>
+  
+</div>
+</body>
+</html>

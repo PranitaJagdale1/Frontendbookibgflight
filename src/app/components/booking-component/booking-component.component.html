@@ -1,0 +1,48 @@
+<div style="text-align: center">
+<h1><strong>Booking Details Of User</strong></h1>
+</div>
+<!--<form class="searchdiv" method="post">
+<nav class="navbar">
+  <input  class="form-control" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="Search()"
+  placeholder="Enter First Name To Search">
+  
+</nav>
+</form>-->
+<!--<nav class="navbar">-->
+  <form class="searchdiv" method="post">
+    <input class="input" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="Search()"
+    placeholder="Enter First Name To Search">
+  </form>
+  <!--</nav>-->
+<br>
+<div class="container">
+  <table>
+      <tr>
+        <tr>
+          <th (click)="sort('bookingId')">bookingId&nbsp;<i class="fa fa-sort"></i></th>
+          <th>firstName</th>
+          <th>lastName</th>
+          <th>gender</th>
+          <th>noOfSeats</th>
+          <th>classs</th>
+          <th>Flight Id</th>
+        </tr>
+      
+      <tr *ngFor="let book of books | booking:searchClass | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p};">
+        <td>{{book?.bookingId}}</td>
+        <td>{{book?.firstName}}</td>
+        <td>{{book?.lastName}}</td>
+        <td>{{book?.gender}}</td>
+        <td>{{book?.noOfSeats}}</td>
+        <td>{{book?.classs}}</td>
+        <td>{{book?.flightId}}</td>
+      </tr>
+     
+  </table>
+  <div  class="button">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
+<br>
+<!--<a href="http://localhost:4200/allow"><button  type="button" class="btn btn-success btn-lg btn-block" >Back To Dashboard</button></a>-->
+<a href="http://localhost:4200/allow"><input type="submit" value="Back to Dashboard" class="button"></a>
